@@ -1,0 +1,10 @@
+{
+  "criterion": "Mean validation RMSE across seeds; no test-based tuning",
+  "selected": "Classical-M0",
+  "validation_scores": {
+    "Classical-M0": 0.151770496969943,
+    "PINN-M0": 0.28308772376126373,
+    "MLP-M0": 5.118760829919069
+  },
+  "timestamp": "2026-10-05T23:12:55.848283+00:00"
+}

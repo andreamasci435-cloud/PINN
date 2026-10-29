@@ -1,0 +1,1 @@
+{"scenario":"local_loss","models":["M0","M1","M2","M3"],"seeds":[11,23,42,67,101],"epochs":10000,"lbfgs":1000,"width":64,"depth":4,"collocation":5000}

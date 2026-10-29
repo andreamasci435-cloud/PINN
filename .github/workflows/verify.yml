@@ -1,0 +1,21 @@
+name: Numerical and software verification
+on: [push, pull_request]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: pip install -r requirements-lock.txt
+      - run: python -m ruff check canon tests
+      - run: python -m pytest -q
+      - run: python main-2.py run --config configs/smoke.json --output results/ci-smoke
+      - run: python main-2.py verify results/ci-smoke

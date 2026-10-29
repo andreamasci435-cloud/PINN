@@ -1,0 +1,48 @@
+{
+  "provenance": "synthetic",
+  "sha256": "37de193efe11a7295714eca23a7e7a4b428bee3944eed25df34d644eff9a1c16",
+  "runs": [
+    {
+      "run_id": "SYN-01",
+      "split": "train",
+      "amplitude": 42,
+      "off": 180.0
+    },
+    {
+      "run_id": "SYN-02",
+      "split": "train",
+      "amplitude": 58,
+      "off": 250.0
+    },
+    {
+      "run_id": "SYN-03",
+      "split": "train",
+      "amplitude": 52,
+      "off": 220.00000000000003
+    },
+    {
+      "run_id": "SYN-04",
+      "split": "validation",
+      "amplitude": 48,
+      "off": 280.0
+    },
+    {
+      "run_id": "SYN-05",
+      "split": "validation",
+      "amplitude": 62,
+      "off": 200.0
+    },
+    {
+      "run_id": "SYN-06",
+      "split": "test",
+      "amplitude": 67,
+      "off": 234.0
+    },
+    {
+      "run_id": "SYN-07",
+      "split": "test",
+      "amplitude": 46,
+      "off": 270.0
+    }
+  ]
+}

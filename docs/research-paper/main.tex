@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,newpxmath}
+\usepackage[margin=27mm,top=25mm,bottom=26mm,headheight=15pt]{geometry}
+\usepackage{microtype,amsmath,enumitem,xcolor,fancyhdr,titlesec,hyperref}
+\definecolor{ink}{HTML}{20352E}
+\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=ink,pdftitle={L’inconsistenza della natura},pdfsubject={Saggio di filosofia della fisica},pdfauthor={}}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{3pt}
+\linespread{1.08}
+\setlist[description]{font=\normalfont\bfseries,leftmargin=0pt,labelindent=0pt,itemsep=4pt,parsep=0pt}
+\titleformat{\section}{\Large\bfseries\color{ink}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries\color{ink}}{\thesubsection}{0.7em}{}
+\titlespacing*{\section}{0pt}{18pt}{8pt}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\itshape L’inconsistenza della natura}
+\fancyhead[R]{\scriptsize FILOSOFIA DELLA FISICA}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\widowpenalty=10000\clubpenalty=10000
+\emergencystretch=1.5em
+% Author intentionally unset: name was not supplied with the source manuscript.
+\newcommand{\AuthorName}{}
+\begin{document}
+\thispagestyle{plain}
+\begin{center}
+{\small\scshape Filosofia della fisica}\par\vspace{12pt}
+{\fontsize{28}{32}\selectfont\bfseries\color{ink} L’inconsistenza\\[4pt] della natura}\par\vspace{10pt}
+{\large Fenomeni, modelli e canoni della conoscenza fisica}\par
+\ifx\AuthorName\empty\else\vspace{10pt}\AuthorName\par\fi
+\vspace{12pt}\textcolor{ink}{\rule{0.22\textwidth}{0.6pt}}
+\end{center}
+\begin{abstract}
+Il saggio esamina il rapporto tra realtà fenomenica, formalizzazione matematica e costruzione dei modelli fisici. L’argomentazione si articola intorno a cinque canoni: uniformità, costanza, direzione, simmetria e conservazione. Attraverso esempi tratti dalla meccanica, dalla termodinamica e dalla teoria dei campi, il testo propone una lettura filosofica del ruolo dell’osservatore nella definizione della «natura teorica».
+\end{abstract}
+\noindent{\small\textbf{Parole chiave:} epistemologia; filosofia della fisica; simmetria; entropia; conservazione.}
+\par\vspace{5pt}
+\noindent{\footnotesize\textit{Nota editoriale.} Edizione tipografica del saggio originale, con sintesi introduttiva e notazione ricomposta in \LaTeX. Le tesi dell’autore sono conservate; questa edizione non costituisce una revisione scientifica o una pubblicazione sottoposta a peer review.}
+\section{Introduzione}
+Il fenomeno, dal greco “phainomenon”: ciò che appare, è il concetto su cui si basa la fisica, che si pone come obiettivo di studiare il “come”, il modo in cui i fenomeni si originano, si susseguono nel tempo, si relazionano. In particolare, da dopo Galilei, la fisica fornisce delle spiegazioni matematiche e pertanto rigorose dei fenomeni studiati; riprendendo la similitudine di Galilei, ”La filosofia è scritta in questo grandissimo libro [...] Egli è scritto in lingua matematica, e i caratteri son triangoli, cerchi, ed altre figure geometriche” (per filosofia si intende la scienza della natura). 
+
+Eppure, tra le più famose leggi fisiche sono annoverati dei principi, che per loro natura sono sul piano logico-deduttivo indimostrabili, ovvero, non si possono realizzare dimostrazioni matematiche riguardo queste proposizioni. Nasce perciò un paradosso apparente: la fisica “è scritta in lingua matematica”, ma contiene leggi puramente empiriche e formalizzate. In questo trattato proverò ad analizzare questo argomento e risolvere il problema appena descritto, dimostrando che la natura, oggetto di studio della fisica, è plasmata dall’uomo e dai canoni che applica su di essa. 
+
+Per capire il ruolo fondante che svolge l’uomo nel plasmare la natura, occorre chiarire i vari momenti che portano alla formulazione di una legge. Tutto parte dalla realtà fenomenica: gli innumerevoli dati che la natura fornisce e colti coi sensi; poi segue l’esperienza, che non è mai libera da presupposti teorici e filtri, derivanti dalla preparazione dell’intellettuale, che “filtrano” i dati raccolti coi sensi, scartando quelli irrilevanti e tenendo conto solo di quelli che ben si adattano con il modello presente nella mente dello scienziato; infine, dalla sovrapposizione della realtà fenomenica e del “filtro”, si origina la “natura teorica”, il vero oggetto di studio della fisica. 
+
+L’uomo perciò da subito seleziona i dati della natura, non subisce passivamente come i fenomeni si manifestano, ma attivamente ricerca in essi ciò che è coerente con un modello, presente in ognuno, costituito da 5 canoni, sulla base dei quali l’uomo plasma l’esperienza e lo studio del mondo fenomenico. I canoni sono i seguenti: 
+\begin{description}
+\item[Uniformità] la natura è uniforme in tutto l’universo, quindi le sue leggi sono applicabili ovunque.
+\item[Costanza] la natura si presenta allo stesso modo nel corso del tempo.
+\item[Direzione] la natura ha una direzione, presenta una dimensione temporale dove si distinguono presente, passato e futuro.
+\item[Simmetria] la natura è simmetrica, perciò né “destra”, né “mancina”.
+\item[Conservazione] in natura nulla può essere creato.
+\end{description}
+Procederò quindi ad analizzare approfonditamente ogni canone e metterò in evidenza quale preciso impatto abbia nella “natura teorica”. \section{Uniformità e costanza}
+
+Sui canoni di Uniformità dello spazio e Costanza del tempo si fonda la meccanica classica, la teoria dei campi e perciò per estensione tutta la fisica. Rappresentano l’assunzione che lo spazio-tempo sia omogeneo, ovvero privo di punti o istanti privilegiati. \subsection{Uniformità}
+
+L’Uniformità dello spazio è un concetto intrinseco alla mente umana. L’uomo, per la reiterazione nell’esperienza delle stesse leggi fisiche in ogni punto dello spazio, assume che lo spazio sia omogeneo. Per esempio, non importa da dove si lasci cadere un grave la legge a cui sottostà è sempre la medesima che si faccia cadere da un tavolo o da una torre. Però, come discusso prima, la natura in sé non è la limitata esperienza, bensì l’infinita e caotica “realtà fenomenica” e sarebbe un errore affermare che l’Uniformità dello spazio sia una caratteristica propria dell’esperienza, dato che l’uomo non potrà mai conoscere ogni punto dell’infinito spazio della natura. Quindi, se la fisica studiasse la natura fenomenica, la riflessione si dovrebbe già fermare, perché la scienza della natura sarebbe fondata su di un’assunzione non dimostrabile. Invece, la fisica è una scienza rigorosa e comprende questo fondamentale canone. Infatti, l’uomo ha postulato e successivamente dimostrato matematicamente questo canone non trovandone la condizione d’esistenza nella realtà. 
+
+Le fondamenta su cui si regge questo canone sono costituite da “l’invarianza per traslazione spaziale”, in pratica, non importa in quale punto dello spazio ci si trovi, le leggi rimangono invariate. In linguaggio matematico, si traduce così: \begin{equation}\delta\mathcal{L}=\sum_a\frac{\partial\mathcal{L}}{\partial r_a}\cdot\epsilon=0.\end{equation} Ovvero, se applichiamo alla funzione Lagrangiana ($\mathcal{L}$) una traslazione di coordinate infinitesime $r_a\rightarrow r_a+\epsilon$, essa rimane invariata. Quindi la funzione dipende solo dalle coordinate relative e non dalla posizione del sistema. 
+
+Concludendo, il primo dei cinque canoni su cui si regge l’impianto della fisica è un prodotto dell’uomo, che non deriva dalla realtà fenomenica, ma dalla necessità di imporre dei principi inamovibili nel continuo flusso della natura. \subsection{Costanza}
+
+Il ragionamento alla base del canone della Costanza è simile a quello impostato per l’Uniformità. Siccome l’esperienza dell’uomo è limitata in confronto all’estensione nel tempo della realtà fenomenica, ma allo stesso tempo, essa è necessaria come base per una scienza rigorosa, il fisico postula il principio e trova riscontro nei calcoli, ergendo il postulato a canone. Matematicamente, il canone è rigoroso poiché si impone che la Lagrangiana non dipenda dal tempo \begin{equation}\frac{\partial\mathcal{L}}{\partial t}=0.\end{equation} 
+
+In conclusione, quando si studia un fenomeno e si estende nel tempo formalmente non si sta prevedendo come l’azione si svolgerà, ma si sta imponendo che i parametri non cambino. Per esempio, prendendo in considerazione la caduta di un grave, descritta dalla formula \begin{equation}h(t)=\frac{1}{2}gt^2,\end{equation} quando si estende ad un qualsiasi istante nel tempo ($t'=\Delta t+t$), si impone che la tale legge e i tali parametri restino invariati e contemporaneamente si risolve il problema da “tre pallini di difficoltà” del libro di testo. \section{Direzione}
+
+Il prossimo canone preso in analisi è molto controverso per le sue implicazioni sul piano teorico, si tratta del Canone della Direzione. 
+
+La natura quindi non si presenta come un caotico insieme di eventi, quello che la realtà fenomenica è, ma come una semiretta, che parte da un'origine e continua lungo una direzione definita. Si potrebbe definire la giustificazione del principio di causalità, ovvero il legame che si instaura tra causa ed effetto necessario e unidirezionale, legame fondante nella fisica, poiché senza una causa non si potrebbe studiare come un fenomeno appare e si ripete nel tempo. 
+
+La legge che rappresenta il canone è il Secondo Principio della Termodinamica e il concetto di Entropia. “Il calore fluisce sempre dai corpi più caldi a quelli più freddi”, scrisse Rudolf Clausius. Non si presenta come la classica legge fisica costituita da costanti e variabili numeriche, ma come un puro enunciato indimostrabile a livello matematico. Si tratta dell’unico principio, insieme alla correlata Entropia, in cui si definisce lo scorrere del tempo e non vi è dimostrazione matematica e nemmeno totale riscontro nella realtà fenomenica, solo concordanza con l’esperienza. Le equazioni di Maxwell e l’equazione di Schrödinger, entrambe leggi fondanti della fisica, sarebbero logicamente dimostrabili anche se il tempo scorresse nel “verso sbagliato”. Eppure, perché esiste un verso sbagliato e uno giusto? La distinzione è necessaria perché permette di studiare l’evoluzione dei sistemi complessi nel tempo. Se infatti non ci fosse una direzione stabilita secondo la quale si dispiega la natura, non si potrebbe analizzare l’evoluzione dei sistemi stessi. Perciò l’uomo eleva a canone la direzione, siccome l’uomo necessita della causalità per ordinare gli eventi e il caos intrinseco alla realtà. 
+
+Qual è questa direzione? Secondo ciò che è stato definito prima, la direzione giusta è dettata dal passaggio del calore da corpi caldi a freddi, ma volendo essere più precisi, si introduce il concetto di Entropia [il rapporto tra il calore ceduto e acquistato dal sistema e la temperatura assoluta in cui lo scambio di calore avviene ($\Delta S=\int \frac{dQ_1}{T_1}$)], che misura l’ordine interno di un sistema. L’entropia dell’universo è sempre in aumento, quindi l’universo tende ad assumere stati sempre più disordinati e questo detta lo scorrere del tempo, dall’ordine al disordine. L’entropia non aumenterebbe solo se si potessero realizzare solo trasformazioni reversibili, ma la logica sottostante è chiara! Se le trasformazioni fossero solo reversibili e quindi dopo ogni trasformazione si potesse ritornare allo stato originale, la natura non avrebbe una “direzione”, ma ciò risulta impossibile nell’esperienza, qualcosa all’interno della trasformazione si modifica sempre in modo irreversibile. 
+
+Dopo Boltzmann, in verità, l’Entropia divenne legata alla probabilità ($S=k_b\ln\Omega$), rendendo possibile anche se improbabile un riarrangiamento più ordinato all’interno di un sistema, ma ciò non entra in contrasto con la legge fondamentale, poiché se l’Entropia diminuisce in un sistema, aumenta in tutto ciò che non è sistema. Il concetto stesso di ordine quindi non si presenta come una proprietà della natura, ma una categoria descrittiva usata dall’uomo per analizzare l’evoluzione temporale di un sistema. \section{Simmetria}
+
+Tre dei cinque canoni su cui si regge la “natura teorica” sono stati provati essere frutto dell’uomo. In questo capitolo, mi concentrerò su un altrettanto affascinante canone: la Simmetria. Fu Isaac Newton a instillare nella “natura teorica” tale canone con il principio di azione e reazione. È infatti risaputo che “ad ogni forza corrisponde una reazione di uguale modulo e direzione ma di verso opposto” ed è oltremodo vero che il principio è valido, ma la sua validità sottende un ordine interno alla natura che la renda simmetrica. 
+
+Secoli dopo, il matematico Hermann Weyl, introdusse il concetto di “gauge”, da cui deriva la “simmetria di gauge”, uno dei principi fondanti della fisica moderna che ha permesso di scoprire una nuova particella: il mediatore della forza. Sostanzialmente, la simmetria di gauge, o meglio “invarianza locale” permette di ruotare la fase locale del campo senza alterare le equazioni del moto, attraverso trasformazioni dette appunto di gauge. 
+
+La fisica moderna si fonda su questo principio perché è ciò che dà vita alle interazioni fondamentali. Per spiegare il perché di questa affermazione, bisogna distinguere tra simmetria globale e locale. Applicando ad una funzione, ad esempio quella di una particella carica, la trasformazione globale, ovvero un fattore di fase costante per l’universo, risulta che tutte le particelle dell’universo cambiano fase contemporaneamente. Dal punto di vista della fisica relativistica questo è un assurdo logico, quindi si introduce la trasformazione locale: quando si applica la derivata, viene prodotto un termine in più, la derivata di $a(x)$, che rompe l’invarianza: \begin{equation}\psi(x)\rightarrow\psi'(x)=e^{iqa(x)}\psi(x)\end{equation}Qui spazio e tempo non sono trascurabili, ma matematicamente crolla l’uguaglianza (l’invarianza della lagrangiana). 
+
+Ecco che l’uomo, per non far crollare la teoria, introduce il concetto di “campo di gauge”, ovvero fisicamente “mediatori”: fotoni, bosoni e gluoni. Per cancellare il termine che rompe l’invarianza, l’uomo utilizza la derivata covariante e l’introduzione del vettore $A_\mu(x)$ serve a trasformare la derivata in funzione d’onda: \begin{equation}D_\mu=\partial_\mu-iqA_\mu(x).\end{equation}Il teorico, per salvaguardare la teoria suppone l’esistenza dei “mediatori”, che tramite esperimenti si sono dimostrati compatibili con la realtà fenomenica e quindi, di conseguenza, hanno salvaguardato l’esistenza del canone. 
+
+Eppure, proprio per la differenza tra la “natura teorica” della fisica e la realtà, i bosoni W e Z, secondo la teoria, avrebbero dovuto avere massa nulla come i fotoni, ma ciò non era compatibile con la realtà fenomenica, in essa i bosoni hanno massa. I bosoni massivi però avrebbero rotto la simmetria, mettendo in crisi tutto l’impianto della “natura teorica” e dei canoni stessi. Di fronte a questo problema, l’uomo postula l’esistenza di campi scalari complessi (campi di Higgs), in cui la simmetria può essere rotta spontaneamente senza violare la simmetria di gauge, ma nascondendola nello stato di minima energia: il vuoto. 
+
+Ricollegandosi a Newton, la forza non è effetto dei fenomeni, ma un’aggiunta geometrica atta a proteggere la simmetria, un’interazione tra campi per mantenere l’invarianza locale. La percezione della natura quindi non è assoluta, col tempo i ruoli degli enti fisici cambiano a seconda delle necessità dell’uomo, principalmente per far valere i propri preconcetti mentali derivanti dall’esperienza e non appartenenti alla realtà fenomenica, come, in questo caso, la simmetria. \section{Conservazione}
+
+Per ultimo ho lasciato il canone della conservazione, che è una “summa” di tutti gli altri canoni. Per secoli la conservazione dell’energia è stata considerata parte della natura fenomenica dall’uomo come testimoniano gli esperimenti di Joule sull’energia. Infatti, una delle prime leggi della fisica che si impara è che l’energia si conserva, ovvero, non viene né creata né distrutta in qualsiasi processo fisico. Da questo principio la natura risulta una scatola chiusa in cui si può trasformare ciò che si trova all’interno, ma in cui non si può né aggiungere né creare niente e ciò è indispensabile per poter studiare la “natura teorica”. Se per assurdo durante le trasformazioni si potesse cambiare l’energia totale dell’universo, quindi distruggere o creare energia, tutto l’impianto della fisica crollerebbe date le impreviste ed aliene relazioni che il sistema e l’universo potrebbero avere. Nonostante quindi l’uomo non sappia se effettivamente per sempre e in qualsiasi punto l’energia si conservi e si conserverà, postula che ciò avvenga. 
+
+Per poter rendere un canone questo postulato, la matematica Emmy Noether formula il suo famoso teorema, il quale giustifica matematicamente la conservazione attraverso l’unione di vari canoni. La conservazione perciò non è nient’altro che la naturale conseguenza dell’esistenza dei canoni, poiché se tutta la natura è uniforme, costante e simmetrica allora ogni quantità si deve conservare all’interno di essa. 
+
+Il nucleo del teorema di Noether è costituito proprio dal fatto che all’interno di un sistema ogni simmetria continua corrisponde a una quantità che si conserva. Per una qualsiasi azione S definita come integrale della Lagrangiana \begin{equation}S=\int_{t_1}^{t_2}\mathcal{L}(q_i;q_i^{\prime};t_i)\,dt,\end{equation} se l’azione è invariante rispetto ad una trasformazione infinitesima nelle coordinate, allora esiste una corrente conservata $J^\mu$ con divergenza nulla. Articolando il teorema nelle sue sfaccettature si torna ai canoni precedentemente elencati. Quindi i canoni di Uniformità, Costanza e Simmetria si fondono per dare vita a un canone più ampio che non solo li contiene, ma è parte integrante di ciascuno di essi. 
+
+Tornando alla matematica infatti, le dimostrazioni matematiche dei primi due canoni sono proprio ricavate dal teorema: \begin{description}
+\item[Uniformità] Invarianza della Lagrangiana per traslazioni spaziali e conseguente conservazione della Quantità di Moto.
+\item[Costanza] Invarianza della Lagrangiana per traslazioni temporali e conseguente conservazione dell’Energia totale (Hamiltoniana $H$ costante):
+\begin{equation}H=T+V=E_{\mathrm{totale}}\end{equation}
+con $T$ e $V$ energia cinetica e potenziale.
+\item[Simmetria semplice] Invarianza della Lagrangiana nelle rotazioni e conseguente conservazione del Momento Angolare.
+\item[Simmetria di gauge] Invarianza della Lagrangiana nelle rotazioni di fase $U(1)$ e conseguente conservazione della Carica Elettrica.
+\end{description}
+
+\section{Conclusioni}
+
+Concludendo, abbiamo dimostrato come nella ricerca scientifica l’uomo interroghi la “natura teorica” e non la caotica realtà fenomenica, dato che nella sua mente sono presenti i 5 canoni sopra spiegati, i quali sono connaturati negli strumenti conoscitivi dell’uomo. 
+
+Allora se i canoni sono dei preconcetti come è possibile che siano così ben dimostrabili matematicamente? A questo quesito rispose già il fisico Wigner affermando che la matematica fosse “irragionevolmente efficiente”, ovvero che fosse in grado, come per magia, di fornire all’uomo la possibilità di plasmare la natura a suo piacimento. In realtà non esiste questa “magia”; la matematica costituisce essa stessa la base dell’analisi dell’uomo e perciò è presente in ogni macchinario o tecnologia che l’uomo realizza per studiare la natura. Perciò il bosone di Higgs è stato individuato al CERN: è stato postulato in base ad una necessità matematica, ovvero salvare la simmetria del modello teorico fornendo massa alle particelle. Siccome essa è alla base delle strutture conoscitive e degli stessi rilevatori del CERN, il riscontro in natura doveva esserci. 
+
+Ritornando a Galileo, è vero che il “libro della natura” è scritto in lingua matematica, ma il libro è scritto dall’uomo stesso.
+\end{document}

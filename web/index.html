@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101a1a" />
+    <title>CANON — Inverse Thermal Research</title>
+    <meta
+      name="description"
+      content="An open computational research laboratory for inverse heat transfer: physics-informed neural networks, independent validation and reproducible evidence."
+    />
+    <link rel="stylesheet" href="/style.css?v=2.1" />
+    <script type="importmap">
+      { "imports": { "three": "/vendor/three.module.js" } }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#laboratory">Skip to laboratory</a>
+    <header>
+      <a class="brand" href="#"
+        ><span class="brand-mark">C<span>°</span></span
+        ><span
+          >CANON<span class="brand-sub">THERMAL RESEARCH LAB</span></span
+        ></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#laboratory" class="active">Laboratory</a
+        ><a href="#comparison">Results</a
+        ><a href="#neural">Neural diagnostics</a><a href="#method">Method</a
+        ><a href="/researcher.html">Researcher ↗</a>
+      </nav>
+      <span class="edition">RESEARCH SERIES <b>02 / 2026</b></span>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span> COMPUTATIONAL PHYSICS · PINN-CANON
+          </div>
+          <h1>Heat leaves a trace.<br /><em>Physics tells its story.</em></h1>
+          <p>
+            An open research laboratory for reconstructing temperature,
+            identifying material properties, and testing the assumptions behind
+            a physical model.
+          </p>
+        </div>
+        <div class="intro-aside">
+          <span class="status-pill">SYNTHETIC DATA</span>
+          <p>
+            A reproducible experiment.<br />No physical measurements implied.
+          </p>
+          <a href="#method">Explore the method <span>↗</span></a>
+        </div>
+      </section>
+      <section id="laboratory" class="lab" aria-label="Interactive laboratory">
+        <div class="section-bar">
+          <div>
+            <span class="section-number">01</span>
+            <h2>The experimental bench</h2>
+          </div>
+          <div class="live-label">
+            <span class="dot"></span
+            ><span id="mode-label">NUMERICAL REFERENCE</span>
+          </div>
+        </div>
+        <div class="workspace">
+          <aside class="controls">
+            <div class="control-heading">
+              <span>CONFIGURATION</span><span>↘</span>
+            </div>
+            <label for="scenario">Material hypothesis</label
+            ><select id="scenario">
+              <option value="uniform">M0 · Uniform material</option>
+              <option value="local_loss">M2 · Local heat loss</option>
+              <option value="variable_alpha">M1 · Spatial diffusivity</option>
+              <option value="temperature_alpha">
+                M3 · Temperature dependence
+              </option>
+            </select>
+            <p class="hint" id="scenario-description">
+              Constant diffusivity and heat loss along the bar.
+            </p>
+            <div class="parameter">
+              <label for="alpha"
+                >Diffusivity α
+                <output id="alpha-value">1.00 × 10⁻⁴</output></label
+              ><input
+                id="alpha"
+                type="range"
+                min="0.3"
+                max="2"
+                step="0.05"
+                value="1"
+              />
+              <div class="range-extents">
+                <span>0.3 × 10⁻⁴</span><span>m²/s</span><span>2.0 × 10⁻⁴</span>
+              </div>
+            </div>
+            <div class="parameter">
+              <label for="beta"
+                >Heat loss β <output id="beta-value">0.010 s⁻¹</output></label
+              ><input
+                id="beta"
+                type="range"
+                min="0.001"
+                max="0.03"
+                step="0.001"
+                value="0.01"
+              />
+              <div class="range-extents">
+                <span>0.001</span><span>s⁻¹</span><span>0.030</span>
+              </div>
+            </div>
+            <div class="parameter">
+              <label for="heater"
+                >Boundary temperature rise
+                <output id="heater-value">60 °C</output></label
+              ><input
+                id="heater"
+                type="range"
+                min="20"
+                max="70"
+                step="1"
+                value="60"
+              />
+              <div class="range-extents">
+                <span>20 °C</span><span>ΔT</span><span>70 °C</span>
+              </div>
+            </div>
+            <button id="simulate" class="primary">
+              Run simulation <span>↗</span></button
+            ><button id="restore" class="secondary">Restore benchmark</button>
+            <div class="setup-specs">
+              <div><span>Length</span><b>0.50 m</b></div>
+              <div><span>Ambient</span><b>20 °C</b></div>
+              <div><span>Right boundary</span><b>Insulated</b></div>
+            </div>
+          </aside>
+          <div class="experiment">
+            <div class="scene-top">
+              <div>
+                <span class="micro">THERMAL FIELD · T(x,t)</span>
+                <h3>One bar. Eight points of observation.</h3>
+              </div>
+              <button
+                id="reset-camera"
+                class="small-button"
+                aria-label="Reset 3D view"
+              >
+                Reset view ↺
+              </button>
+            </div>
+            <div
+              id="scene"
+              role="img"
+              aria-label="Rotatable three-dimensional bar. Colours represent temperature; numerical values are available in the chart and sensor table."
+            >
+              <div class="scene-caption">DRAG TO ROTATE · SCROLL TO ZOOM</div>
+              <div class="scene-coordinates">
+                <span>x = 0 m<br /><b>Heated boundary</b></span
+                ><span>x = 0.50 m<br /><b>Insulated end</b></span>
+              </div>
+            </div>
+            <div class="scene-source">
+              <label for="scene-source">3D temperature field</label
+              ><select id="scene-source">
+                <option value="reference">Synthetic reference</option>
+                <option value="prediction">Selected model prediction</option>
+              </select>
+            </div>
+            <div class="temperature-legend">
+              <span>20 °C</span>
+              <div></div>
+              <span>90 °C</span><span class="legend-note">TEMPERATURE</span>
+            </div>
+            <div class="timeline">
+              <button
+                id="play"
+                class="play"
+                aria-label="Play thermal evolution"
+              >
+                ▶
+              </button>
+              <div class="time-slider">
+                <label for="time"
+                  ><span>TIME EVOLUTION</span
+                  ><output id="time-value">200 s</output></label
+                ><input
+                  id="time"
+                  type="range"
+                  min="0"
+                  max="80"
+                  step="1"
+                  value="40"
+                />
+                <div class="range-extents">
+                  <span>0 s · Heating</span
+                  ><span id="off-label">Switch-off at 230 s</span
+                  ><span>400 s</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lab-footer">
+          <span id="solver-label"
+            ><span class="dot"></span> CONSERVATIVE SOLVER · BDF</span
+          ><span id="scene-status" role="status" aria-live="polite"
+            >Loading temperature field…</span
+          ><span>SI UNITS / °C</span>
+        </div>
+      </section>
+      <section class="readouts">
+        <article class="plot-panel">
+          <div class="panel-title">
+            <div>
+              <span class="micro">SPATIAL PROFILE</span>
+              <h3>From sparse sensors to a continuous field</h3>
+            </div>
+            <span class="unit">T / °C</span>
+          </div>
+          <div class="plot-key">
+            <span><i class="line truth"></i>Reference</span
+            ><span
+              ><i class="line pred"></i
+              ><span id="prediction-label">Selected model</span></span
+            ><span>○ Sensors</span>
+          </div>
+          <svg
+            id="profile"
+            viewBox="0 0 680 240"
+            role="img"
+            aria-label="Temperature profile along the bar"
+          ></svg>
+          <div class="plot-axis">POSITION ALONG THE BAR / m</div>
+        </article>
+        <article class="sensor-panel">
+          <div class="panel-title">
+            <div>
+              <span class="micro">OBSERVATIONS</span>
+              <h3>A network of observations</h3>
+            </div>
+            <span id="sensor-state" class="unit">SYNTHETIC</span>
+          </div>
+          <div id="sensors" class="sensor-grid"></div>
+          <p class="hint">
+            Benchmark: samples with Gaussian measurement noise. Exploration:
+            interpolated solver values without noise.
+          </p>
+        </article>
+      </section>
+      <section id="comparison" class="comparison">
+        <p id="execution-note" class="result-note" hidden>
+          Browser edition: simulations run on your device. Neural results come
+          from completed Python experiments; new training is available in the
+          local project.
+        </p>
+        <div class="section-bar">
+          <div>
+            <span class="section-number">02</span>
+            <h2>Put the models to the test</h2>
+          </div>
+          <span class="micro">ENTIRE EXPERIMENTS HELD OUT</span>
+        </div>
+        <div class="experiment-picker">
+          <label for="experiment-picker">ARCHIVED EXPERIMENT</label
+          ><select id="experiment-picker">
+            <option>Loading…</option>
+          </select>
+        </div>
+        <div class="result-intro">
+          <p>
+            A convincing curve is not enough. Compare learned physical
+            parameters with a classical fit and a neural network trained only on
+            observations.
+          </p>
+          <div>
+            <button id="run" class="primary">
+              Reproduce benchmark <span>↻</span></button
+            ><label class="preset-label" for="training-preset"
+              >Training preset</label
+            ><select id="training-preset">
+              <option value="demo">Original M0 · quick baseline</option>
+              <option value="advanced">Advanced M2 · hard constraints</option>
+            </select>
+            <p class="hint" id="training-hint">
+              Runs locally on CPU. Progress is reported below.
+            </p>
+          </div>
+        </div>
+        <div id="job-status" role="status" aria-live="polite"></div>
+        <div class="metric-cards">
+          <div>
+            <span>SELECTED ON VALIDATION</span><strong id="best-model">—</strong
+            ><small>Selection frozen before test evaluation</small>
+          </div>
+          <div>
+            <span>SELECTED GROUP · TEST RMSE</span
+            ><strong id="best-rmse">—</strong
+            ><small>Mean across seeds · sensor temperature · °C</small>
+          </div>
+          <div>
+            <span>PROVENANCE</span
+            ><strong class="text-metric">100% synthetic</strong
+            ><small id="split-summary">Loading experiment splits</small>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">
+              Quantitative model comparison
+            </caption>
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>RMSE validation</th>
+                <th>RMSE test</th>
+                <th>MAE test</th>
+                <th>Training time</th>
+                <th>Inspect</th>
+              </tr>
+            </thead>
+            <tbody id="result-rows">
+              <tr>
+                <td colspan="6">No benchmark is available yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="result-note">
+          PINN and classical fit: forward-solver prediction with inferred
+          parameters under a new known input. MLP: direct neural prediction.
+          Explore direct PINN accuracy and physics residuals in the neural
+          diagnostics below.
+        </p>
+        <div class="download-row">
+          <span class="micro">EXPORT THIS EXPERIMENT</span
+          ><a href="/api/download/results.json" download>Results JSON ↗</a
+          ><a href="/api/download/metrics.csv" download>Metrics CSV ↗</a
+          ><a href="/api/download/benchmark.svg" download>Figure SVG ↗</a
+          ><a href="/api/download/config.json" download>Configuration ↗</a>
+        </div>
+      </section>
+      <section id="neural" class="neural-section">
+        <div class="section-bar">
+          <div>
+            <span class="section-number">03</span>
+            <h2>Inside the physics-informed network</h2>
+          </div>
+          <span class="micro">EVIDENCE, NOT JUST A PREDICTION</span>
+        </div>
+        <div class="neural-intro">
+          <div>
+            <span class="eyebrow">CONSTRAINTS BY CONSTRUCTION</span>
+            <h2>
+              Learning the field.<br /><em>Respecting the boundaries.</em>
+            </h2>
+            <p>
+              The advanced PINN uses an exact boundary lifting, heating-phase
+              features and continuous-protocol physics sampling. Inspect the
+              network itself, not only the numerical solver that uses its
+              parameters.
+            </p>
+          </div>
+          <div
+            class="architecture"
+            aria-label="Network architecture: coordinates and forcing, four tanh layers, constrained temperature, conservative PDE"
+          >
+            <span>POSITION · TIME · HEATING PROTOCOL</span>
+            <div class="network-layers">
+              <i></i><i></i><i></i><i></i><span>tanh<br />MLP</span>
+            </div>
+            <b>Constrained temperature field</b
+            ><small>∂tT − ∂x(α ∂xT) + β(T − T<sub>amb</sub>)</small>
+          </div>
+        </div>
+        <div class="diagnostic-controls">
+          <label for="diagnostic-model">PINN run</label
+          ><select id="diagnostic-model"></select
+          ><label for="field-view">Displayed prediction</label
+          ><select id="field-view">
+            <option value="hybrid">Forward solver + learned parameters</option>
+            <option value="direct">Direct neural network</option>
+          </select>
+        </div>
+        <p id="neural-aggregate" class="result-note"></p>
+        <div
+          id="diagnostic-summary"
+          class="diagnostic-summary"
+          aria-live="polite"
+        ></div>
+        <div class="diagnostic-grid">
+          <article class="plot-panel">
+            <div class="panel-title">
+              <div>
+                <span class="micro">OPTIMIZATION</span>
+                <h3>Every part of the loss</h3>
+              </div>
+              <span class="unit">LOG SCALE</span>
+            </div>
+            <div class="plot-key">
+              <span style="color: #3b6755">— Data</span
+              ><span style="color: #b16b43">— PDE</span
+              ><span style="color: #557baf">— Initial</span
+              ><span style="color: #966b99">— Boundary</span>
+            </div>
+            <svg
+              id="loss-chart"
+              viewBox="0 0 620 230"
+              role="img"
+              aria-label="Training loss components over optimizer iterations"
+            ></svg>
+            <p class="hint">
+              Raw component losses. Hard constraints can make initial and
+              boundary losses numerically zero; these are floored for the log
+              plot.
+            </p>
+          </article>
+          <article class="plot-panel">
+            <div class="panel-title">
+              <div>
+                <span class="micro">PHYSICS AUDIT</span>
+                <h3>Where the equation disagrees</h3>
+              </div>
+              <span class="unit">|r| · DIMENSIONLESS</span>
+            </div>
+            <svg
+              id="residual-chart"
+              viewBox="0 0 620 230"
+              role="img"
+              aria-label="Space-time heatmap of the independent PDE residual"
+            ></svg>
+            <p id="residual-caption" class="hint"></p>
+          </article>
+          <article class="plot-panel">
+            <div class="panel-title">
+              <div>
+                <span class="micro">INVERSE PARAMETERS</span>
+                <h3>Which explanation was learned?</h3>
+              </div>
+              <select id="parameter-view" aria-label="Physical parameter">
+                <option value="alpha">Diffusivity α · m²/s</option>
+                <option value="beta">Heat loss β · s⁻¹</option>
+              </select>
+            </div>
+            <svg
+              id="parameter-chart"
+              viewBox="0 0 620 230"
+              role="img"
+              aria-label="Learned physical coefficient compared with synthetic truth"
+            ></svg>
+            <p class="hint">
+              Dashed: synthetic truth. Solid: selected estimate. M3 is evaluated
+              at ambient temperature. A close temperature fit need not identify
+              the right parameters.
+            </p>
+          </article>
+          <article class="evidence-panel">
+            <span class="micro">RESEARCH READINESS</span>
+            <h3>What the evidence supports</h3>
+            <div id="evidence-list"></div>
+            <p class="hint">
+              These checks describe numerical evidence. They are not a
+              certificate of physical validity or publication readiness.
+            </p>
+          </article>
+        </div>
+        <details class="run-details">
+          <summary>Inspect the reproducibility record</summary>
+          <div id="run-record"></div>
+        </details>
+      </section>
+      <section id="method" class="method">
+        <div>
+          <div class="eyebrow">04 / THE METHOD</div>
+          <h2>Question the assumptions<br /><em>behind the model.</em></h2>
+          <p>
+            A discrepancy may reveal unmodelled heat loss, changing material
+            properties, or measurement limitations. The experiment must
+            distinguish these explanations.
+          </p>
+          <div class="equation">
+            ∂T/∂t = ∂/∂x [ α(x,T) ∂T/∂x ] − β(x)(T − T<sub>amb</sub>)
+          </div>
+          <p class="hint">
+            Constant volumetric heat capacity · one-dimensional geometry · no
+            internal sources.
+          </p>
+        </div>
+        <div class="method-steps">
+          <article>
+            <span>01</span>
+            <div>
+              <h3>Measurements & provenance</h3>
+              <p>
+                Each run records its dataset, random seeds, configuration,
+                source hashes and software environment.
+              </p>
+            </div>
+          </article>
+          <article>
+            <span>02</span>
+            <div>
+              <h3>Explicit physics</h3>
+              <p>
+                Conservative heat flux and positive inverse parameters. The
+                advanced model enforces initial and boundary conditions by
+                construction.
+              </p>
+            </div>
+          </article>
+          <article>
+            <span>03</span>
+            <div>
+              <h3>Independent validation</h3>
+              <p>
+                Entire experiments are held out. Model selection uses validation
+                data and is locked before test evaluation.
+              </p>
+            </div>
+          </article>
+          <article>
+            <span>04</span>
+            <div>
+              <h3>Transparent limitations</h3>
+              <p>
+                Repeated initializations expose optimization variability. They
+                do not establish calibrated uncertainty or replace physical
+                validation.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="author-teaser">
+        <div>
+          <span class="eyebrow">05 / THE RESEARCHER</span>
+          <h2>Physics, research<br /><em>and the person behind it.</em></h2>
+          <p>
+            From a physics research placement at UNIMORE to STEM peer tutoring
+            and student leadership. Explore the academic profile, curriculum
+            vitae and writing behind the project.
+          </p>
+        </div>
+        <a class="primary" href="/researcher.html"
+          >Explore the researcher profile <span>↗</span></a
+        >
+      </section>
+      <section class="references">
+        <span class="micro">FOUNDATIONS</span
+        ><a
+          href="https://doi.org/10.1016/j.jcp.2018.10.045"
+          target="_blank"
+          rel="noreferrer"
+          >Raissi et al. · Physics-informed neural networks ↗</a
+        ><a
+          href="https://doi.org/10.1016/j.cma.2021.114333"
+          target="_blank"
+          rel="noreferrer"
+          >Sukumar & Srivastava · Exact boundary conditions ↗</a
+        ><a
+          href="https://doi.org/10.1016/j.cma.2022.115671"
+          target="_blank"
+          rel="noreferrer"
+          >Wu et al. · Adaptive sampling ↗</a
+        >
+      </section>
+    </main>
+    <footer>
+      <div class="brand">
+        CANON <span class="micro">PHYSICS, OPEN TO QUESTION.</span>
+      </div>
+      <span>An open research laboratory · 2026</span
+      ><a href="/api/docs" id="api-link">API / docs ↗</a>
+    </footer>
+    <dialog
+      id="local-training"
+      class="training-dialog"
+      aria-labelledby="training-title"
+    >
+      <button id="close-training" class="secondary">Close ×</button>
+      <span class="eyebrow">REPRODUCIBLE PYTHON EXPERIMENT</span>
+      <h2 id="training-title">Train on your laptop.</h2>
+      <p>
+        This browser edition has no compute server. The results shown here are
+        real archived experiments; clicking this button does not start training
+        online.
+      </p>
+      <p>
+        Download and extract the training kit, install Python 3.12 and its
+        pinned dependencies, then run the selected preset:
+      </p>
+      <pre><code id="training-command"></code></pre>
+      <div class="author-actions">
+        <a class="primary" href="/downloads/python-training-kit.zip" download
+          >Download Python kit ↓</a
+        ><a class="secondary" href="/reproduce.html">Setup instructions ↗</a>
+      </div>
+      <p class="hint">
+        Your local results stay on your laptop. They are not uploaded
+        automatically.
+      </p>
+    </dialog>
+    <script src="/runtime-config.js"></script>
+    <script type="module" src="/app.js?v=3.0"></script>
+  </body>
+</html>

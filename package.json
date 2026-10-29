@@ -1,0 +1,17 @@
+{
+  "name": "pinn-canon-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "build": "node scripts/build-web.mjs"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "fflate": "0.8.2",
+    "prettier": "^3.6.2"
+  }
+}

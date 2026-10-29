@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Reproduce the research — CANON</title>
+    <link rel="stylesheet" href="/style.css?v=3.0" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/"
+        >CANON <span class="brand-sub">THERMAL RESEARCH LAB</span></a
+      >
+      <nav>
+        <a href="/">Laboratory</a><a href="/researcher.html">Researcher ↗</a>
+      </nav>
+    </header>
+    <main style="max-width: 850px; margin: auto; padding: 48px 24px">
+      <span class="eyebrow">REPRODUCIBILITY / BROWSER EDITION</span>
+      <h1
+        style="
+          font:
+            48px Georgia,
+            serif;
+        "
+      >
+        Explore online.<br /><em>Train locally.</em>
+      </h1>
+      <p>
+        The public laboratory works without a Python server. Interactive
+        simulations are computed on your device; neural comparisons, loss curves
+        and residual maps come from completed, archived Python experiments.
+      </p>
+      <section class="profile-section">
+        <h2>What runs in the browser?</h2>
+        <p>
+          The forward solver uses the same conservative spatial fluxes, heating
+          boundary and M0–M3 hypotheses as the Python solver. It integrates with
+          fourth-order Runge–Kutta and a bounded time step. The Python reference
+          uses BDF. These are distinct numerical methods: browser exploration
+          does not replace the recorded research benchmark or train a PINN.
+        </p>
+      </section>
+      <section class="profile-section">
+        <h2>Reproduce an experiment</h2>
+        <p>
+          <a class="primary" href="/downloads/python-training-kit.zip" download
+            >Download Python training kit ↓</a
+          >
+        </p>
+        <p>
+          Extract the ZIP. Install Python 3.12, open a terminal in the extracted
+          folder and run:
+        </p>
+        <pre style="white-space: pre-wrap; overflow-wrap: anywhere">
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements-lock.txt
+.venv/bin/python main-2.py run --config configs/demo.json --output results/my-demo</pre
+        >
+        <p>
+          On Windows, use <code>py -3.12 -m venv .venv</code> and replace
+          <code>.venv/bin/python</code> with
+          <code>.venv\Scripts\python.exe</code>.
+        </p>
+        <p>
+          For the enhanced single-seed model use
+          <code>configs/advanced-demo.json</code>; for five seeds use
+          <code>configs/advanced.json</code>. Always choose a new output folder.
+          The kit includes numerical source, configuration and pinned
+          dependencies; it is not a full copy of the website.
+        </p>
+        <p>
+          The environment was tested on macOS CPU. Other platforms should verify
+          their installation. Local training uses your device’s resources and
+          does not upload results to the public site.
+        </p>
+      </section>
+      <section class="profile-section">
+        <h2>What the evidence means</h2>
+        <p>
+          Archived experiments use synthetic data. Seed spread describes
+          optimizer variability, not calibrated uncertainty over physical
+          measurements. Direct neural predictions and predictions from inferred
+          coefficients are reported separately. Exact boundary constraints do
+          not establish physical validation.
+        </p>
+        <p>
+          New experiments can be published by the project maintainer through a
+          new site build. Your browser does not modify the published archive.
+        </p>
+      </section>
+      <a href="/" class="text-link">Back to the laboratory ↗</a>
+    </main>
+  </body>
+</html>

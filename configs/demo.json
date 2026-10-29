@@ -1,0 +1,1 @@
+{"scenario":"uniform","models":["M0"],"seeds":[42],"epochs":1800,"lbfgs":150,"collocation":512}

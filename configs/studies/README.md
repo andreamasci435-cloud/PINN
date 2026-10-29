@@ -1,0 +1,1 @@
+Predeclared exploratory synthetic study. Run each configuration with `python main-2.py run --config PATH --output NEW_FOLDER`. Do not tune models on these test results; reserve new physical runs for confirmatory validation. This plan is not evidence that the studies have been executed.

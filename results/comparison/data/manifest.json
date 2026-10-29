@@ -1,0 +1,36 @@
+{
+  "provenance": "synthetic",
+  "sha256": "7b91dde791413d0934c5a4d4bdcefdebbd7d158b75d1eba7191ff6596a2962b6",
+  "runs": [
+    {
+      "run_id": "SYN-01",
+      "split": "train",
+      "amplitude": 45,
+      "off": 190.0
+    },
+    {
+      "run_id": "SYN-02",
+      "split": "train",
+      "amplitude": 60,
+      "off": 240.0
+    },
+    {
+      "run_id": "SYN-03",
+      "split": "train",
+      "amplitude": 50,
+      "off": 210.0
+    },
+    {
+      "run_id": "SYN-04",
+      "split": "validation",
+      "amplitude": 55,
+      "off": 260.0
+    },
+    {
+      "run_id": "SYN-05",
+      "split": "test",
+      "amplitude": 65,
+      "off": 229.99999999999997
+    }
+  ]
+}

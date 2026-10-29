@@ -1,0 +1,38 @@
+{
+  "length": 0.5,
+  "duration": 400.0,
+  "ambient": 20.0,
+  "temperature_scale": 60.0,
+  "alpha": 0.0001,
+  "beta": 0.01,
+  "scenario": "local_loss",
+  "sensors": 8,
+  "noise": 0.15,
+  "seed": 42,
+  "truth_nx": 101,
+  "fit_nx": 51,
+  "samples": 81,
+  "epochs": 10000,
+  "lbfgs": 1000,
+  "width": 64,
+  "depth": 4,
+  "collocation": 5000,
+  "learning_rate": 0.001,
+  "models": [
+    "M2"
+  ],
+  "seeds": [
+    11,
+    23,
+    42,
+    67,
+    101
+  ],
+  "weights": {
+    "data": 20.0,
+    "pde": 0.0,
+    "ic": 10.0,
+    "bc": 10.0,
+    "reg": 0.001
+  }
+}

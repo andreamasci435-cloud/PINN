@@ -1,0 +1,74 @@
+{
+  "config": {
+    "length": 0.5,
+    "duration": 400.0,
+    "ambient": 20.0,
+    "temperature_scale": 60.0,
+    "alpha": 0.0001,
+    "beta": 0.01,
+    "scenario": "local_loss",
+    "sensors": 8,
+    "noise": 0.15,
+    "seed": 20261009,
+    "truth_nx": 101,
+    "fit_nx": 51,
+    "samples": 81,
+    "epochs": 6000,
+    "lbfgs": 1500,
+    "width": 48,
+    "depth": 4,
+    "collocation": 512,
+    "learning_rate": 0.001,
+    "models": [
+      "M2"
+    ],
+    "classical_models": [
+      "M0",
+      "M1",
+      "M2",
+      "M3"
+    ],
+    "seeds": [
+      11,
+      23,
+      42,
+      67,
+      101
+    ],
+    "boundary_mode": "hard",
+    "adaptive_sampling": false,
+    "continuous_protocols": true,
+    "adaptive_every": 100,
+    "warmup_epochs": 1500,
+    "parameter_lr": 0.0001,
+    "protocol_set": "confirmation",
+    "weights": {
+      "data": 20.0,
+      "pde": 1.0,
+      "ic": 10.0,
+      "bc": 10.0,
+      "reg": 1e-06
+    }
+  },
+  "locked_at": "2026-10-09T14:44:13.282687+00:00",
+  "selection_rule": "Pooled validation sensor RMSE, averaged across seeds",
+  "source_sha256": {
+    "__init__.py": "9aa9f19e2376e244bfec856a86d112c9cd9573c41b82eeb45abb9abd72b15568",
+    "calibration.py": "cd526acafe9896eefc8a959eba77cdd62295d816625e7a55077852a698531920",
+    "cli.py": "ac81a7e61ba7beedef96cc9835110f0d91c5e80ebf2493c622467a34566ee668",
+    "config.py": "2c36a81ad4433fab6bbf42c111bfafebe41ca046d928c636810fe5b0de244603",
+    "data.py": "87fff792b3269fcc698a0a6664cde6f1149800cea086737fbb611ecfea79014a",
+    "diagnostics.py": "933317e15479fb0d76ffabb933d8dc0398111fde989c9d2702f13da5cefc344f",
+    "evaluate.py": "9f1adb1612dd75b7d7c1ca8485e0ca33b901ded8918d42d28890c797aedae205",
+    "experiment.py": "3c7a65a4c26d8dd03eb49d7124a69f7ee59e9221a272154666df205cc09c942c",
+    "fdm.py": "1d517c4f00c3c59afa5774444298f37900591f092384a0fecde70017e0400427",
+    "physics.py": "d07b515fb481731df957a1dce7fc59df7a08935978a17895ab3dcf371ba9efe2",
+    "pinn.py": "fea303a9c8731db3397b03476b56c692eaef7b1a1929059a9a614e4bc444312f",
+    "real.py": "27276449e94873c1d97b82955ab75b4651c7d61a9d295ef1bf354c5bc090977a",
+    "release.py": "5ee8665e039a6d2a5455bcfe410508ba6ccad48152dbd8914e7cd6ac3259a52f",
+    "report.py": "de245acecccab3de832acecf505b6a315cf8a5ea0b8caaf6dab1a604ba4d2f8b",
+    "server.py": "1e8a23dfb7dc5d2040af8f438e33beb134154e4702082d4346a25a7eccbc2803",
+    "studies.py": "60489d19e6322cf97f1769813286227a665e2178f62f9050d2a04ed8be63a21d",
+    "uncertainty.py": "06ea21f91786db955b9929e6e9be21a3292dff493190079cf15b7f6efd7054ad"
+  }
+}

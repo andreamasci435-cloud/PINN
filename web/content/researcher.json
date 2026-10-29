@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "published": true,
+  "name": "",
+  "headline": "Exploring physics through research, computation and communication.",
+  "biography": "A scientific high school student based in Sassuolo, Italy, with experience in quantum physics research, peer tutoring and student representation. Academic interests include numerical modelling, scientific computing and the foundations of physical theories.",
+  "location": "Sassuolo, Italy",
+  "education": [
+    {
+      "title": "Scientific high school diploma — expected June 2027",
+      "institution": "Liceo Scientifico “A. F. Formiggini”, Sassuolo",
+      "dates": "2022–2027",
+      "description": "Year 3 average: 9.33/10. Year 4 average: 9.25/10."
+    },
+    {
+      "title": "Dual Diploma programme",
+      "institution": "",
+      "dates": "",
+      "description": "U.S. high school diploma completed alongside the Italian scientific curriculum."
+    }
+  ],
+  "experience": [
+    {
+      "title": "Physics research intern",
+      "institution": "Department of Physics (FIM), UNIMORE, Modena",
+      "dates": "February 2026",
+      "description": "Academic research placement with Prof. Valentina De Renzi, exploring quantum mechanics, Heisenberg’s uncertainty principle, qubit dynamics and quantum computing architectures."
+    },
+    {
+      "title": "Student body president",
+      "institution": "Liceo Scientifico “A. F. Formiggini”",
+      "dates": "2026–present",
+      "description": "Elected student representative on institutional boards, coordinating school-wide academic and cultural initiatives."
+    },
+    {
+      "title": "Physics and mathematics peer tutor",
+      "institution": "Liceo Scientifico “A. F. Formiggini”",
+      "dates": "",
+      "description": "Selected by faculty for academic merit to support younger students through the school’s STEM help desk."
+    },
+    {
+      "title": "STEM content creator",
+      "institution": "Science communication and physics workshops",
+      "dates": "2026",
+      "description": "Developing educational video modules on differential equations, numerical modelling and scientific computing with Python and PyTorch."
+    }
+  ],
+  "awards": [
+    {
+      "title": "Physics Olympiad — school-level first place",
+      "institution": "Liceo Scientifico “A. F. Formiggini”",
+      "dates": "2025–2026",
+      "description": "First among fourth-year students at the school."
+    },
+    {
+      "title": "Digital SAT — 1550/1600",
+      "institution": "",
+      "dates": "September 2026",
+      "description": "Math: 790. Reading and Writing: 760. First attempt."
+    },
+    {
+      "title": "IELTS Academic — overall band 8.0",
+      "institution": "",
+      "dates": "July 2026",
+      "description": "CEFR level C1."
+    }
+  ],
+  "skills": [
+    "Italian and English (C1)",
+    "Physics and mathematics peer tutoring",
+    "Public speaking and student representation",
+    "Scientific communication",
+    "Educational video production",
+    "First-principles problem solving",
+    "Critical thinking",
+    "Project planning and time management"
+  ],
+  "contributions": [],
+  "links": [
+    {
+      "label": "L’inconsistenza della natura — essay in Italian (PDF)",
+      "url": "/content/inconsistenza-della-natura.pdf"
+    }
+  ],
+  "cv_url": "/content/curriculum-vitae.txt",
+  "portrait_url": "/content/portrait.jpg"
+}
